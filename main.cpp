@@ -165,8 +165,17 @@ int main(int argc, char* argv[]) {
     std::cout << "Writing results to: " << outname << "\n";
     
     std::ofstream outfile( outname.c_str());
+#if 0
     outfile << phi_grid.ni << " " << phi_grid.nj << " " << phi_grid.nk << std::endl;
     outfile << min_box[0] << " " << min_box[1] << " " << min_box[2] << std::endl;
+#else
+    outfile << phi_grid.ni << std::endl;
+    outfile << phi_grid.nj << std::endl;
+    outfile << phi_grid.nk <<std::endl;
+    outfile << min_box[0] << std::endl;
+    outfile << min_box[1] << std::endl;
+    outfile << min_box[2] << std::endl;
+#endif
     outfile << dx << std::endl;
     for(unsigned int i = 0; i < phi_grid.a.size(); ++i) {
       outfile << phi_grid.a[i] << std::endl;
